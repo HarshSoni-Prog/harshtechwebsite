@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="project.css">
+    <title>HarshTech Projects</title>
+    <!-- Disco Background -->
+    <script>
+        r = 255;
+        g = 255;
+        b = 255;
+        flag = 0;
+        t = new Array;
+        o = new Array;
+        d = new Array;
+
+        function hex(a, c) {
+            t[a] = Math.floor(c / 16)
+            o[a] = c % 16
+            switch (t[a]) {
+                case 10:
+                    t[a] = 'A';
+                    break;
+                case 11:
+                    t[a] = 'B';
+                    break;
+                case 12:
+                    t[a] = 'C';
+                    break;
+                case 13:
+                    t[a] = 'D';
+                    break;
+                case 14:
+                    t[a] = 'E';
+                    break;
+                case 15:
+                    t[a] = 'F';
+                    break;
+                default:
+                    break;
+            }
+            switch (o[a]) {
+                case 10:
+                    o[a] = 'A';
+                    break;
+                case 11:
+                    o[a] = 'B';
+                    break;
+                case 12:
+                    o[a] = 'C';
+                    break;
+                case 13:
+                    o[a] = 'D';
+                    break;
+                case 14:
+                    o[a] = 'E';
+                    break;
+                case 15:
+                    o[a] = 'F';
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        function ran(a, c) {
+            if ((Math.random() > 2 / 3 || c == 0) && c < 255) {
+                c++
+                d[a] = 2;
+            }
+            else {
+                if ((Math.random() <= 1 / 2 || c == 255) && c > 0) {
+                    c--
+                    d[a] = 1;
+                }
+                else d[a] = 0;
+            }
+            return c
+        }
+        function do_it(a, c) {
+            if ((d[a] == 2 && c < 255) || c == 0) {
+                c++
+                d[a] = 2
+            }
+            else
+                if ((d[a] == 1 && c > 0) || c == 255) {
+                    c--;
+                    d[a] = 1;
+                }
+            if (a == 3) {
+                if (d[1] == 0 && d[2] == 0 && d[3] == 0)
+                    flag = 1
+            }
+            return c
+        }
+        function disco() {
+            if (flag == 0) {
+                r = ran(1, r);
+                g = ran(2, g);
+                b = ran(3, b);
+                hex(1, r)
+                hex(2, g)
+                hex(3, b)
+                document.body.style.background = "#" + t[1] + o[1] + t[2] + o[2] + t[3] + o[3]
+                flag = 50
+            }
+            else {
+                r = do_it(1, r)
+                g = do_it(2, g)
+                b = do_it(3, b)
+                hex(1, r)
+                hex(2, g)
+                hex(3, b)
+                document.body.style.background = "#" + t[1] + o[1] + t[2] + o[2] + t[3] + o[3]
+                flag--
+            }
+
+            setTimeout('disco()', 50)
+        }
+    </script>
+    <!-- Disco Background -->
+</head>
+
+<body onload="disco()">
+
+    <!-- MAIN (Center website) -->
+    <div class="main">
+
+
+        <h1><mark style="color: #0096FF; background: #87CEEB;"><a href="www.harshtech.me" style="text-decoration: none;">harshTech.me</a></mark> Project Corner 📁😉</h1>
+        <hr>
+
+        <h2 align="center">My Projects</h2>
+
+        <div id="myBtnContainer">
+            <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+            <button class="btn" onclick="filterSelection('Python')"> Python</button>
+            <button class="btn" onclick="filterSelection('C++')"> Digital Notes</button>
+            <button class="btn" onclick="filterSelection('Godot')"> GODOT</button>
+            <button class="btn" onclick="filterSelection('Others')"> Others</button>
+            <a href="index.html"><button class="btn" style="background: coral;">Home</button></a>
+        </div>
+
+        <!-- Portfolio Gallery Grid -->
+        <div class="row">
+
+            <div class="responsive">
+                <div class="column Python">
+                    <div class="content">
+                        <a target="_blank" href="https://github.com/hashfx/YouTube-Video-Downloader">
+                            <img src="img/ytdwnl.png" alt="YouTube Video Downloader" width="300" height="200">
+                        </a>
+                        <div class="desc">YouTube Video Downloader</div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="responsive">
+                <div class="column Python">
+                    <div class="content">
+                        <a target="_blank" href="https://github.com/hashfx/Random-Password-Generator">
+                            <img src="img/pwd.png" alt="Random Password Generator" width="300" height="200">
+                        </a>
+                        <div class="desc">Random Password Generator</div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="responsive">
+                <div class="column Python">
+                    <div class="content">
+                        <a target="_blank" href="https://github.com/hashfx/todo-app">
+                            <img src="img/todo.png" alt="ToDo-app" width="300" height="200">
+                        </a>
+                        <div class="desc">ToDo-app</div>
+                    </div>
+                </div>
+            </div>
+            <div class="responsive">
+                <div class="column Python">
+                    <div class="content">
+                        <a target="_blank" href="https://github.com/hashfx/Flappy-Bird-Game">
+                            <img src="img/todo.png" alt="ToDo-app" width="300" height="200">
+                        </a>
+                        <div class="desc">Flappy Bird</div>
+                    </div>
+                </div>
+            </div>
+            <div class="responsive">
+                <div class="column Python">
+                    <div class="content">
+                        <a target="_blank" href="https://github.com/hashfx/F.L.A.M.E.S.">
+                            <img src="img/flames.png" alt="ToDo-app" width="300" height="200">
+                        </a>
+                        <div class="desc">F.L.A.M.E.S.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="responsive">
+                <div class="column Python">
+                    <div class="content">
+                        <a target="_blank" href="https://github.com/hashfx/Pomodoro-Desktop-Notifier">
+                            <img src="img/todo.png" alt="ToDo-app" width="300" height="200">
+                        </a>
+                        <div class="desc">Break Notifier</div>
+                    </div>
+                </div>
+            </div>
+            <div class="responsive">
+                <div class="column C++">
+                    <div class="content">
+                        <a target="_blank" href="https://hashfx.github.io/LearnSQL/index.html">
+                            <img src="img/sqlimg.png" alt="Learn SQL" width="300" height="200">
+                        </a>
+                        <div class="desc">Learn SQL</div>
+                    </div>
+                </div>
+            </div>
+            <div class="responsive">
+                <div class="column C++">
+                    <div class="content">
+                        <a target="_blank" href="https://github.com/hashfx/LearnKotlin/tree/master/src/main/kotlin">
+                            <img src="img/kotlin.png" alt="Learn SQL" width="300" height="200">
+                        </a>
+                        <div class="desc">Learn Kotlin</div>
+                    </div>
+                </div>
+            </div>
+            <!--
+            <div class="responsive">
+                <div class="column C++">
+                    <div class="content">
+                        <a target="_blank" href="img03.jpg">
+                            <img src="img03.jpg" alt="In Development...🙏🏻" width="300" height="200">
+                        </a>
+                        <div class="desc"> </div>
+
+                    </div>
+                </div>
+            </div> 
+            <div class="responsive">
+                <div class="column C++">
+                    <div class="content">
+                        <a target="_blank" href="img03.jpg">
+                            <img src="img03.jpg" alt="In Development...🙏🏻" width="300" height="200">
+                        </a>
+                        <div class="desc"> </div>
+
+                    </div>
+                </div>
+            </div> 
+            <div class="responsive">
+                <div class="column Godot">
+                    <div class="content">
+                        <a target="_blank" href="img03.jpg">
+                            <img src="img03.jpg" alt="In Development...🙏🏻" width="300" height="200">
+                        </a>
+                        <div class="desc"> Space Invader </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="responsive">
+                <div class="column Godot">
+                    <div class="content">
+                        <a target="_blank" href="img03.jpg">
+                            <img src="img03.jpg" alt="In Development...🙏🏻" width="300" height="200">
+                        </a>
+                        <div class="desc">Platformer Invader</div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="responsive">
+                <div class="column Others">
+                    <div class="content">
+                        <a target="_blank" href="img03.jpg">
+                            <img src="img03.jpg" alt="In Development...🙏🏻" width="300" height="200">
+                        </a>
+                        <div class="desc">Github</div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="responsive">
+                <div class="column Others">
+                    <div class="content">
+                        <a target="_blank" href="img03.jpg">
+                            <img src="img03.jpg" alt="In Development...🙏🏻" width="300" height="200">
+                        </a>
+                        <div class="desc">Blog</div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="responsive">
+                <div class="column Others">
+                    <div class="content">
+                        <a target="_blank" href="img03.jpg">
+                            <img src="img03.jpg" alt="In Development...🙏🏻" width="300" height="200">
+                        </a>
+                        <div class="desc"> </div>
+
+                    </div>
+                </div>
+            </div> -->
+            <!-- END GRID -->
+        </div>
+        <div class="clearfix"></div>
+
+        <!-- END MAIN -->
+    </div>
+
+
+    <script>
+        filterSelection("all")
+        function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("column");
+            if (c == "all") c = "";
+            for (i = 0; i < x.length; i++) {
+                w3RemoveClass(x[i], "show");
+                if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+            }
+        }
+
+        function w3AddClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                if (arr1.indexOf(arr2[i]) == -1) { element.className += " " + arr2[i]; }
+            }
+        }
+
+        function w3RemoveClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                while (arr1.indexOf(arr2[i]) > -1) {
+                    arr1.splice(arr1.indexOf(arr2[i]), 1);
+                }
+            }
+            element.className = arr1.join(" ");
+        }
+
+
+        // Add active class to the current button (highlight it)
+        var btnContainer = document.getElementById("myBtnContainer");
+        var btns = btnContainer.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+    </script>
+
+
+
+</body>
+
+</html>
