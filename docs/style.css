@@ -9,6 +9,22 @@ html {
 	font-family: 'Montserrat', sans-serif;
 	scroll-behavior: smooth;
 }
+
+/* Scroll Bar */
+html::-webkit-scrollbar {
+	width: 20px;
+}
+html::-webkit-scrollbar-track {
+   background-image: repeating-linear-gradient(45deg, red 0, red 1px, transparent 0, transparent 50%);
+   background-size: 10px 10px;
+ }
+html::-webkit-scrollbar-thumb {
+ background: transparent;
+ border-radius: 5px;
+ border: 2px solid black;
+ box-shadow: inset 1px 1px 5px black ;
+}
+
 a {
 	text-decoration: none;
 }
